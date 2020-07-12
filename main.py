@@ -30,8 +30,9 @@ def main():
 
     matches = get_matches()
     
-    with open('output.txt', 'w') as f:
-        f.write(str(matches))
-        
+    # convert output to a pandas df and write to csv
+    df = pd.DataFrame(matches)
+    df.to_csv('output.csv')
+    
 if __name__ == '__main__':
     main()
