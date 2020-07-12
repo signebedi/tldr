@@ -42,8 +42,8 @@ matches = []
 for word in dictionary.keys():
     for tld in tlds:
         if word.lower().endswith(tld):
-            matches.append({word:tld})
-print(matches)
+            matches.append({word.lower():tld})
+# print(matches)
 
 with open('output.txt', 'w') as f:
     f.write(str(matches))
