@@ -5,10 +5,32 @@ import pandas as pd
 # dictionary = json.loads(requests.get('https://raw.githubusercontent.com/adambom/dictionary/master/dictionary.json').text)
 # print(dictionary)
 
+dictionary = { # temporary dictionary to start testing the functionality
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
+    'a':'def',
 
-tlds = requests.get('https://data.iana.org/TLD/tlds-alpha-by-domain.txt')
-for line in tlds:
-    print(line)
+}
 
 
+r = requests.get('https://data.iana.org/TLD/tlds-alpha-by-domain.txt', stream=True)
+
+tlds = []
+
+for line in r.iter_lines():
+    if line: 
+        tlds.append(line.decode())
+    # print(tlds)
+    
+    
+    
 # tlds = pd.read_html('https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains')
