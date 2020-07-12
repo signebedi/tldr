@@ -1,5 +1,4 @@
-import json, requests, re
-import pandas as pd
+import json, requests
 
 def get_matches():
     # get a dictionary as a json object
