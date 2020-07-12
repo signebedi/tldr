@@ -1,4 +1,5 @@
 import json, requests
+import pandas as pd
 
 def get_matches():
     # get a dictionary as a json object
@@ -15,12 +16,13 @@ def get_matches():
         if line: 
             tlds.append(line.decode().lower())
 
-    # create another empty list to store matches
-    matches = []
+    # create another  list to store matches
+    matches = {'word':[],'tld':[]}
     for word in dictionary.keys():
         for tld in tlds:
             if word.lower().endswith(tld):
-                matches.append({word.lower():tld})
+                matches['word'].append(word.lower())
+                matches['tld'].append(tld)
 
     return matches
     
@@ -30,8 +32,6 @@ def main():
     
     with open('output.txt', 'w') as f:
         f.write(str(matches))
-        
-        
         
 if __name__ == '__main__':
     main()
