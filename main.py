@@ -6,4 +6,6 @@ dictionary = json.loads(requests.get('https://raw.githubusercontent.com/adambom/
 # print(dictionary)
 
 
-tlds = pd.read_html('https://www.wikiwand.com/en/List_of_Internet_top-level_domains')
+tlds = pd.read_html('https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains')
+
+git config --global credential.helper store
