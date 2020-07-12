@@ -32,7 +32,7 @@ def main():
     
     # convert output to a pandas df and write to csv
     df = pd.DataFrame(matches)
-    df.to_csv('output.csv')
+    df.to_csv('output.csv', index=False)
     
 if __name__ == '__main__':
     main()
